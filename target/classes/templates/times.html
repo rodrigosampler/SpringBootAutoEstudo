@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlsn="http://www.w3.org/1999/xhtml"
+	xmlsn:th="http://www.thymeleaf.org"
+	xmlsn:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<link href="/webjars/materializecss/0.97.7/css/materialize.css"
+	type="text/css" rel="stylesheet" media="screen,projection" />
+<meta charset="UTF-8" />
+<title>FutManeger</title>
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="row valing-wrapper">
+			<div class="col s6">
+				<h3>Gerenciador de Times</h3>
+			</div>
+			<div class="col s6">
+				<a href="/jogadores/" class="valing btn-large waves-effect waves-light teal right">Gerenciar Jogadores</a>
+			</div>
+		</div>
+		
+		<div class="row">
+			<form action="/times/salvar" method="POST">
+				<div class="input-field col s0">
+					<input placeholder="Nome do Time" id="time" name="nomeTime" type="text" class="validate" />
+					<label for="first_name"> Nome do time</label>	
+				</div>
+				<div class="col s4">
+					<button class="btn waves-effect waves-light" type="submit" name="action">Adicionar Time</button>
+				</div>
+			</form>
+		</div>
+		
+		<div class="row">
+			<h5>Times Cadastrados</h5>
+			<table class="striped">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Número de Jogadores</th>
+						<th>Detalhes</th>
+						<th>Excluir Time</th>
+					</tr>
+				</thead>	
+				<tbody>
+					<tr th:each="time : ${times}">
+						<td th:text="${time.nome}"></td>
+						<td th:text="${time.jogadores.size()}"></td>
+						<td><a class="waves-effect waves-teal btn-flat" th:href="@{${'/times/'+time.id}}">Ver Detalhes</a></td>
+						<td><a class="waves-effect waves-teal btn-flat" href="#">X</a></td>
+						<td></td>						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+	<script src="/webjars/jquery/2.2.4/jquery.js"></script>
+	<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+</body>
+</html>

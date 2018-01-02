@@ -1,0 +1,6 @@
+br/ufc/npi/bean/Jogador.class
+br/ufc/npi/controller/PrincipalController.class
+br/ufc/npi/bean/Time.class
+br/ufc/npi/AutoestudoApplication.class
+br/ufc/npi/repositorio/JogadorRepositorio.class
+br/ufc/npi/repositorio/TimeRepositorio.class
